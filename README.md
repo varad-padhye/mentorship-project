@@ -3,7 +3,7 @@
 ## Tech Stack
 - **Frontend**: React
 - **Backend**: Django
-- **Database**: [Insert Database] (e.g., PostgreSQL)
+- **Database**: SQLite
 - **Version Control**: Git
 
 ## Key Features
