@@ -41,3 +41,4 @@
 ## Contribution Guidelines
 - Write clear and concise commit messages.
 - Perform code reviews and ensure tests pass before merging.
+- Update the requirements.txt file in the backend whenever installing a new dependancy.
