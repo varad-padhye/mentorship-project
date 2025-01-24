@@ -1,0 +1,57 @@
+.links{
+    color:green;
+    display:flex;
+    justify-content: left;
+    align-items: center;
+
+}
+* {
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  
+  .navbar {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the left */
+    width: 60px; /* Width of the sidebar */
+    height: 30vh; /* Full viewport height */
+    background-color: grey; /* Dark background for the sidebar */
+    padding: 20px;
+    position: fixed; /* Make it fixed on the side */
+    top: 0;
+    left: 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 2cm;
+    margin-top: 5cm;
+    margin-left: 0.1cm;
+  }
+  
+  .navbar h1 {
+    color: peachpuff;
+    margin-bottom: 20px; /* Add spacing below the heading */
+  }
+  
+  .navbar .links {
+    display: flex;
+    flex-direction: column; /* Stack links vertically */
+    width: 100%; /* Take the full width */
+    margin-top: 0.7cm;
+  }
+  
+  .navbar a {
+    margin: 8px 0; /* Spacing between links */
+    text-decoration: none;
+    padding: 10px 16px;
+    color: white;
+    background-color: transparent;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .navbar a:hover {
+    color: blueviolet;
+    background-color: rgba(255, 255, 255, 0.1); /* Highlight effect on hover */
+  }
+  
+  
