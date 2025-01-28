@@ -145,4 +145,15 @@
     font-size: 14px;
     color: #333;
   }
-  
+  .add-transaction-button {
+    background-color: gray;
+    color: black;
+    width: 40px;
+    display: flex;
+    position: absolute;
+    left: 10px; 
+    top: 22%;  
+    transform: translateY(-50%);  
+    border-radius: 0.5cm;
+    justify-content: center;
+  }

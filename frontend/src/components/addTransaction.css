@@ -12,79 +12,204 @@
     z-index: 1000;
 }
 
-.popup-content {
+.popup {
     background: #fff;
     border-radius: 10px;
-    width: 50%;
-    max-width: 600px;
+    width: 80%;
+    max-width: 500px;
+    max-height: 15cm;
     padding: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-height: 70%;
+    overflow-y: auto;
 }
-
-.popup-content h1 {
+.category-list{
+    background: #fff;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 200px;
+    height: 15cm;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-height: 70%;
+    overflow-y: auto;
+}
+.list{
+    margin-top: 1cm;
+    justify-content: center;
+    margin-right: 1cm;
+}
+.popup h2 {
     text-align: center;
     font-size: 1.5rem;
     margin-bottom: 20px;
 }
 
-.add-transaction-form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+.popup input{
+    width: 25%;
+    gap:1cm;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-bottom: 15px;
 }
-
-.add-transaction-form input,
-.add-transaction-form select,
-.add-transaction-form textarea,
-.add-transaction-form button {
+.popup select,
+.popup textarea,
+.popup button {
     width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1rem;
+    margin-bottom: 15px;
 }
 
-.add-transaction-form button {
-    background-color: #007bff;
-    color: #fff;
+.popup input[type="radio"] {
+    width: auto;
+    margin-right: 5px;
+}
+
+.type {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between elements */
+  }
+  
+  .type p {
+    margin: 0;
+    font-size: 16px;
+  }
+  
+  .type button {
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 15%;
+  }
+  
+  .type button:hover {
+    background-color: #e6e6e6;
+  }
+  
+  .type button:active,
+  .type button:focus{
+    outline: 2px solid #007bff;
+    border-color: #007bff;
+  }
+  .category-list button:active,
+  .category-list button:focus{
+    outline: 2px solid #007bff;
+    border-color: #007bff;
+  }
+  .category-list button{
+    width:4cm;
+    display: list-item;
+    background-color:gray;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+.popup .react-calendar {
+    margin: 10px 0;
+    width: 7cm;
+    height:8cm;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 0.9rem;
+}
+
+.popup .react-calendar button {
+    padding: 5px;
+}
+
+.popup .react-calendar__tile {
+    padding: 5px 0;
+    font-size: 0.8rem;
+}
+
+.popup button {
+    background-color: white;
+    color:black;
     border: none;
     cursor: pointer;
-    grid-column: span 2;
 }
 
-.add-transaction-form button:hover {
+.popup button:hover {
     background-color: #0056b3;
 }
 
-.calendar {
-    grid-column: span 2;
-    display: flex;
-    justify-content: center;
+.popup select {
+    margin-top: 10px;
+}
+.popup textarea{
+    width:20%;
+    margin-left: 1cm;
+
+    margin-top: 6.5cm;
+    
+
+}
+/* Custom Calendar Styling */
+.react-calendar {
+    border: none;
+    font-family: Arial, sans-serif;
+    width: 10cm;
+    background: none;
 }
 
-.category-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    grid-column: span 2;
+.react-calendar__navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 1rem;
 }
 
-.category-item {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border: 1px solid #ddd;
+.react-calendar__tile {
+    background-color: white;  /* Set background to white */
+    text-align: center;
+    padding: 10px 5px;
+    font-size: 0.9rem;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.2s;
 }
 
-.category-item:hover {
-    background-color: #f5f5f5;
+
+.react-calendar__tile:hover {
+    background-color: #f0f8ff;  /* Light blue hover effect */
 }
 
-.category-item.active {
-    background-color: #007bff;
-    color: #fff;
-    border-color: #0056b3;
+.react-calendar__tile--active {
+    background-color: white;  /* Blue active date background */
+    color: white;
 }
+
+.react-calendar__tile--now {
+    background-color: #ddd;  /* Light grey for today's date */
+}
+
+
+.react-calendar__navigation__arrow {
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+.react-calendar__navigation button {
+    color:black;
+    font-size: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.react-calendar__navigation button:hover {
+    color: lightblue;
+}
+

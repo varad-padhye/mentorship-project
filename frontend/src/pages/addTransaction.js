@@ -4,10 +4,30 @@ import '../components/addTransaction.css';
 
 const AddTransaction = ({ isOpen, onClose }) => {
     const [selectedDate, setSelectedDate] = useState(new Date());
+    const [selectedCategory, setSelectedCategory] = useState(null);
+
+    
 
     const handleDateChange = (date) => {
         setSelectedDate(date);
     };
+    const categories = [
+        "Food",
+        "Travel",
+        "Shopping",
+        "Utilities",
+        "Leisure",
+        "Health",
+        "Education",
+        "Gift",
+        "Others",
+    ];
+
+    const handleCategoryClick = (category) => {
+        setSelectedCategory(category);
+    };
+
+
 
     if (!isOpen) return null;
 
@@ -19,31 +39,43 @@ const AddTransaction = ({ isOpen, onClose }) => {
                     <input type="text" placeholder="Name" />
                     <input type="number" placeholder="Amount" />
                     <div>
-                        <label>
-                            <input type="radio" name="transactionType" value="credit" /> Credit
-                        </label>
-                        <label>
-                            <input type="radio" name="transactionType" value="debit" /> Debit
-                        </label>
+                        <div className='type'>
+                        <p>type of transaction</p>
+                        <button>
+                            Credit
+                            </button>
+                        <button>
+                             Debit
+                            </button>
+                            </div>
                     </div>
-                    <div>
+                    <div style={{ display: 'flex',  alignItems: 'flex-start', flexDirection:'row' }}>
                         <Calendar onChange={handleDateChange} value={selectedDate} />
+                        <textarea placeholder="Description"></textarea>
+                        
                     </div>
-                    <select>
-                        <option value="food">Food</option>
-                        <option value="travel">Travel</option>
-                        <option value="shopping">Shopping</option>
-                        <option value="utilities">Utilities</option>
-                        <option value="leisure">Leisure</option>
-                        <option value="health">Health</option>
-                        <option value="education">Education</option>
-                        <option value="gift">Gift</option>
-                        <option value="others">Others</option>
-                    </select>
-                    <textarea placeholder="Description"></textarea>
+                    
+                    {selectedDate && (
+                        <p className="mt-4"> Date: {selectedDate.toDateString()}</p>
+                    )}
+                    
                     <button onClick={onClose}>Close</button>
                 </div>
             </div>
+            <div className="category-list">
+                <div className="list">
+                    <p>select a category</p>
+                            {categories.map((category) => (
+                                <button
+                                    key={category}
+                                    onClick={() => handleCategoryClick(category)}
+                                    className={selectedCategory === category ? 'active' : ''}
+                                >
+                                    {category}
+                                </button>
+                            ))}
+                            </div>
+                        </div>
         </div>
     );
 };

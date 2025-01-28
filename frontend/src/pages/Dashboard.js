@@ -5,13 +5,14 @@ import AddTransaction from './addTransaction';
 
 const Dashboard = () => {
     const [activeTab, setActiveTab] = useState('all');
-    const [isPopupOpen, setIsPopupOpen] = useState(false); // State for popup visibility
+    const [isPopupOpen, setIsPopupOpen] = useState(false); 
 
     const switchTab = (tab) => {
         setActiveTab(tab);
     };
 
     const togglePopup = () => {
+        console.log("Toggling popup:", !isPopupOpen);
         setIsPopupOpen(!isPopupOpen);
     };
 
@@ -40,7 +41,7 @@ const Dashboard = () => {
                 </div>
             </div>
             <button className="add-transaction-button" onClick={togglePopup}>
-                Add Transaction
+                +
             </button>
             <div className="container">
                 <div className="tabs">
@@ -74,7 +75,7 @@ const Dashboard = () => {
             {isPopupOpen && (
                 <div className="popup-overlay">
                     <div className="popup-container">
-                        <AddTransaction onClose={togglePopup} />
+                    <AddTransaction isOpen={isPopupOpen} onClose={togglePopup} />
                     </div>
                 </div>
             )}
