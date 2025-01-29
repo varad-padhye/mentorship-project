@@ -22,13 +22,14 @@ const  ProfileSettings=()=> {
   };
 
   return (
+    
     <div className="profile-settings-container">
       <header className="header">
         <h1>name/logo</h1>
       </header>
 
       <main className="main-content">
-        <section className="profile">
+        <div className="profile">
           <div className="profile-card">
             <div className="profile-info">
               <h2>full name</h2>
@@ -37,9 +38,9 @@ const  ProfileSettings=()=> {
             </div>
             
           </div>
-        </section>
+        </div>
 
-        <section className="settings">
+        <div className="settings">
           <h2>settings</h2>
           <button className="change-password">Change Password</button>
           <div className="currency-settings">
@@ -84,16 +85,18 @@ const  ProfileSettings=()=> {
             <button className="add-account" onClick={handleAddAccount}>
               + Add an Account
             </button>
-          </div>
-        </section>
-
-        <section className="contact-us">
+            <div className="contact-us">
           <h3>Contact Us</h3>
           <p>Project description</p>
           <p>Mentor + Mentee names</p>
-        </section>
+        </div>
+          </div>
+        </div>
+
+       
       </main>
     </div>
+    
   );
 }
 export default ProfileSettings;
