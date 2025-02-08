@@ -94,14 +94,18 @@
   .type button:hover {
     background-color: #e6e6e6;
   }
+  .type button.focus {
+    color: green;
+  }
   
-  .type button:active,
-  .type button:focus{
+  
+ 
+  .type button.active{
     outline: 2px solid #007bff;
     border-color: #007bff;
   }
-  .category-list button:active,
-  .category-list button:focus{
+  
+  .category-list button.active{
     outline: 2px solid #007bff;
     border-color: #007bff;
   }
