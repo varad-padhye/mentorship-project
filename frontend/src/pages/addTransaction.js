@@ -11,10 +11,10 @@ const AddTransaction = ({ isOpen, onClose }) => {
     const [transactionType, setTransactionType] = useState('Credit');
     const [showSuccessMessage, setShowSuccessMessage] = useState(false);
     
-    const categories = [
-        "Food", "Travel", "Shopping", "Utilities", "Leisure",
-        "Health", "Education", "Gift", "Others"
-    ];
+    
+    const categories = transactionType === '' 
+        ? ["Food", "Travel", "Shopping", "Utilities", "Leisure", "Health", "Education", "Gift", "Others"]
+        : ["Income", "Gifts", "Others"];
 
     const handleDateChange = (date) => {
         setSelectedDate(date);
@@ -69,30 +69,49 @@ const AddTransaction = ({ isOpen, onClose }) => {
                 <div>
                     <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
                     <input type="number" placeholder="Amount" value={amount} onChange={(e) => setAmount(e.target.value)} />
+                    
+                    {/* Transaction Type Toggle */}
                     <div className='type'>
                         <p>Type of transaction</p>
-                        <button className={transactionType === 'Credit' ? 'active' : ''} onClick={() => setTransactionType('Credit')}>Credit</button>
-                        <button className={transactionType === 'Debit' ? 'active' : ''} onClick={() => setTransactionType('Debit')}>Debit</button>
+                        <button 
+                            className={transactionType === 'Credit' ? 'active' : ''} 
+                            onClick={() => { setTransactionType('Credit'); setSelectedCategory(null); }}
+                        >
+                            Credit
+                        </button>
+                        <button 
+                            className={transactionType === 'Debit' ? 'active' : ''} 
+                            onClick={() => { setTransactionType('Debit'); setSelectedCategory(null); }}
+                        >
+                            Debit
+                        </button>
                     </div>
+
                     <div style={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'row' }}>
                         <Calendar onChange={handleDateChange} value={selectedDate} />
                         <textarea placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
                     </div>
+                    
                     {selectedDate && <p className="mt-4"> Date: {selectedDate.toDateString()}</p>}
+
                     <button onClick={onClose}>Close</button>
                     <button onClick={handleAddTransaction}>Add</button>
                 </div>
             </div>
+
+            
             {showSuccessMessage && (
                 <div className="success-popup">
                     <p>Transaction added successfully!</p>
                 </div>
             )}
+
+            
             <div className="category-list">
                 <div className="list">
                     <p>Select a category</p>
                     {categories.map((category) => (
-                        <button
+                        <button 
                             key={category}
                             onClick={() => handleCategoryClick(category)}
                             className={selectedCategory === category ? 'active' : ''}

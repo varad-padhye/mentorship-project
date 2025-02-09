@@ -1,46 +1,124 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../components/Login.css';
+import { FaUser, FaEnvelope, FaLock, FaEye, FaEyeSlash, FaPen } from 'react-icons/fa';
+import axios from 'axios'; // Import axios for making HTTP requests
 
 const Signup = () => {
-  return (
-    <div className="login-container">
-      <div className="login-box">
-      <div className="buttons">
-        <Link to ="/signup">
-        <button >Signup  </button>
-        </Link>
-        <Link to ="/">
-        <button >Login</button>
-        </Link>
-        </div>
-        <h2>Signup</h2>
-        <form>
-          <div className="form-group">
-            <label>Full Name</label>
-            <input type="text" placeholder="Enter your name" />
-          </div>
-          <div className="form-group">
-            <label>Username</label>
-            <input type="text" placeholder="username" />
-          </div>
+  // State variables to store the input data
+  const [fullName, setFullName] = useState('');
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
-          <div className="form-group">
-            <label>Email address</label>
-            <input type="email" placeholder="Enter email" />
-          </div>
-          <div className="form-group">
-            <label>Password</label>
-            <input type="password" placeholder="Password" />
-          </div><div className="form-group">
-            <label>confirm Password</label>
-            <input type="password" placeholder="confirm password" />
-          </div>
-          <Link to ="/add-account">
-          <button type="submit">Next</button>
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent the default form submission
+
+    // Prepare the data to send to the backend
+    const formData = {
+      fullName,
+      username,
+      email,
+      password,
+      confirmPassword,
+    };
+    await axios.post('http://localhost:3000/signup', formData);
+    // try {
+      
+    //   const response = await axios.post('http://localhost:3000/signup', formData);
+
+      
+    //   if (response.status === 200) {
+    //     console.log('Signup successful', response.data);
+        
+    //   }
+    // } catch (error) {
+    //   console.error('Error during signup:', error);
+      
+    // }
+  };
+
+  return (
+    <div className="login-page">
+      <div className="welcome">
+        <h1 className='welcometo'>
+          Welcome to
+        </h1>
+        <h2 className='fintastic'>
+          FINTASTIC
+        </h2>
+        <p className='message1'>ready to elevate your financial decisions?</p>
+      </div>
+      <div className="login-container">
+        <div className="buttons">
+          <Link to="/signup">
+            <button className="tab-button">sign-up</button>
           </Link>
-        </form>
-       
+          <Link to="/">
+            <button className="tab-button ">login</button>
+          </Link>
+        </div>
+
+        <div className="login-box">
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <FaUser className="icon" />
+              <input
+                type="text"
+                placeholder="Full name"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <FaPen className="icon" />
+              <input
+                type="text"
+                placeholder="Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <FaEnvelope className="icon" />
+              <input
+                type="email"
+                placeholder="E-mail"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <FaLock className="icon" />
+              <input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <FaEye className="toggle-password" />
+            </div>
+            <div className="form-group">
+              <FaLock className="icon" />
+              <input
+                type="password"
+                placeholder="Confirm Password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
+              <FaEyeSlash className="toggle-password" />
+            </div>
+            <div className="submit">
+             <Link to ="/add-account">
+              <button type="submit" className="submit-button">
+                Next →
+              </button>
+              </Link>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

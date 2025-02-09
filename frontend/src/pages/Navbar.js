@@ -7,6 +7,8 @@ const Navbar = () => {
                 <Link to="/dashboard">Dash</Link>
                 <Link to="/stats">stats</Link>
                 <Link to="/profile">profile</Link>
+                <Link to="/transactionList">List</Link>
+
             </div>
         </nav>
     );

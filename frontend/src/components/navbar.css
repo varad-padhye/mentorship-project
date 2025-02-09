@@ -15,7 +15,7 @@
     flex-direction: column; /* Stack items vertically */
     align-items: flex-start; /* Align items to the left */
     width: 60px; /* Width of the sidebar */
-    height: 30vh; /* Full viewport height */
+    height: 40vh; /* Full viewport height */
     background-color: grey; /* Dark background for the sidebar */
     padding: 20px;
     position: fixed; /* Make it fixed on the side */
