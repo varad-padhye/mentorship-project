@@ -1,0 +1,40 @@
+.pie-container{
+
+    position: absolute;
+    bottom: 10%;
+    left: 40%;
+    top: 70%;
+    background-color: #F1EFE3;
+    height: 380px;
+    border-radius: 25px
+}
+.pie{
+
+    padding-bottom: 50px;
+}
+
+#credit{
+    background-color: #037171;
+    width: 84px;
+    height: 39px;
+    border-radius: 100px;
+    border: 10px;
+    border-color: black;
+    text-align: center;
+    padding: auto;
+    margin: 7%; ;
+
+}
+
+#debit{
+    background-color: #037171;
+    width: 84px;
+    height: 39px;
+    border-radius: 100px;
+    border: 10px;
+    border-color: black;
+    text-align: center;
+    padding: auto;
+    
+
+}

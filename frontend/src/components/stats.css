@@ -1,0 +1,68 @@
+.container{
+    margin: 0%;
+    padding: 0%;
+}
+
+.stats-header {
+    display: flex;
+    gap: 10px;
+}
+
+.total-bankBalance {
+    background-color: #F1EFE3;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 2.5px;
+    padding-bottom: 2.5px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    /* identical to box height */
+    border-radius: 10px;
+    position: absolute;
+    left: 350px;
+    top: 337px;
+    color: #000000;
+
+}
+#year{
+
+    background-color: #000000;
+    color: white;
+}
+.year{
+    position: absolute;
+    left: 530px;
+    top: 337px;
+}
+
+.statschart {
+
+    position: absolute;
+    left: 225px;
+}
+.customBarchart{
+    position: absolute;
+    top: 320px;
+    left: 50%;
+    height: 255px;
+    background-color: #F1EFE3;
+    border-radius:25px ;
+}
+
+.expenditure{
+
+    position: absolute;
+    top: 0px;
+    left: 209px;
+    margin-top: 5cqh;
+   border-radius: 25px;
+   background-image: url(chart\ bgi.png);
+   width: 1000px;
+   padding: 20px;
+}
+

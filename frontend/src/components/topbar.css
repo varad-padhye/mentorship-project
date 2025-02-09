@@ -1,0 +1,17 @@
+.excontainer{
+    backgroundColor: #b8e3e3;
+    padding: 24px;
+    borderRadius: 12px;
+    maxWidth: 100%;
+    width:750px ;
+    fontFamily: Arial, sans-serif;
+    color: #333;
+    backgroundImage: url('chart bgi.png');
+    backgroundsize:cover;
+  }
+
+  .upbar{
+
+    position: absolute;
+    left: 1200px;
+  }

@@ -1,0 +1,108 @@
+const App = () => {
+  const [accounts, setAccounts] = useState(
+    JSON.parse(localStorage.getItem("accounts")) || [
+      { name: "main account", balance: "" },
+      { name: "account 2", balance: "" },
+    ]
+  );
+
+  const saveToLocalStorage = (updatedAccounts) => {
+    localStorage.setItem("accounts", JSON.stringify(updatedAccounts));
+  };
+
+  const handleAddAccount = () => {
+    const updatedAccounts = [...accounts, { name: `account ${accounts.length}`, balance: "" }];
+    setAccounts(updatedAccounts);
+    saveToLocalStorage(updatedAccounts);
+  };
+
+  const handleRemoveAccount = (index) => {
+    const updatedAccounts = accounts.filter((_, i) => i !== index);
+    setAccounts(updatedAccounts);
+    saveToLocalStorage(updatedAccounts);
+  };
+
+  const handleInputChange = (index, field, value) => {
+    const updatedAccounts = [...accounts];
+    updatedAccounts[index][field] = value;
+    setAccounts(updatedAccounts);
+    saveToLocalStorage(updatedAccounts);
+  };
+
+  return (
+    <div className="app-container">
+      <header className="header">
+        <h1>Let’s get started!</h1>
+        <p>Log your account details to start tracking</p>
+      </header>
+
+      <div className="form-container">
+        <div className="currency-selector">
+          <label>Currency to log your transactions in</label>
+          <select>
+            <option value="INR">INR ₹</option>
+            <option value="USD">USD $</option>
+            <option value="EUR">EUR €</option>
+          </select>
+        </div>
+
+        <div className="accounts-list">
+          {accounts.map((account, index) => (
+            <div key={index} className="account-card">
+              <div className="account-details">
+                <div className="varad">
+                    <input
+                      type="text"
+                      placeholder="Name"
+                      value={account.name}
+                      onChange={(e) => handleInputChange(index, "name", e.target.value)}
+                    />
+                </div>
+                <input
+                  type="number"
+                  placeholder="Bank balance"
+                  value={account.balance}
+                  onChange={(e) => handleInputChange(index, "balance", e.target.value)}
+                />
+              </div>
+              {index > 0 && (
+                <button 
+                  onClick={() => handleRemoveAccount(index)}
+                  className="remove-button"
+                >
+                  &#x1F5D1;
+                </button>
+              )}
+            </div>
+          ))}
+
+          <button onClick={handleAddAccount} className="add-account-button">
+         ➕ Add an account
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default App;
+
+
+/* total bank balance */
+
+position: absolute;
+width: 190px;
+height: 30px;
+left: 260px;
+top: 428px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 30px;
+/* identical to box height */
+
+color: #000000;
+
+
