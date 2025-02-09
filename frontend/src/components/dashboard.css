@@ -195,3 +195,9 @@
     font-size: 18px;
     font-weight: bold;
 }
+
+.Barchart{
+  position: relative;
+ bottom: 0%;
+ left: 0%;
+}

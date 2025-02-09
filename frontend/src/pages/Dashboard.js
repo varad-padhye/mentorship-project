@@ -2,6 +2,8 @@ import Navbar from './Navbar';
 import '../components/dashboard.css';
 import React, { useState, useEffect } from 'react';
 import AddTransaction from './addTransaction';
+import Barchart from '../components/barChart';
+import Pie_chart from '../components/pie';
 
 const Dashboard = () => {
     const [activeTab, setActiveTab] = useState('all');
@@ -25,8 +27,12 @@ const Dashboard = () => {
     };
 
     return (
+       
         <div className={`Dashboard ${isPopupOpen ? 'blur-background' : ''}`}>
             <Navbar />
+          
+            
+            
             <div className="money">
                 <div className="card"><h1 className='label'>Current Balance</h1></div>
                 <div className="card"><h1 className='label'>Money Spent</h1></div>
@@ -75,6 +81,11 @@ const Dashboard = () => {
                     </div>
                 </div>
             )}
+            
+            <div className='barchart'><Barchart/></div>
+            <Pie_chart/>
+            
+            
         </div>
     );
 };

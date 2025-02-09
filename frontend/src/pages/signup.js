@@ -36,8 +36,9 @@ const Signup = () => {
             <label>confirm Password</label>
             <input type="password" placeholder="confirm password" />
           </div>
-
+          <Link to ="/add-account">
           <button type="submit">Next</button>
+          </Link>
         </form>
        
       </div>

@@ -1,0 +1,9 @@
+.barchart{
+
+    position: absolute; 
+    left: 5%;
+    bottom: 10%;
+    margin: 50px;
+    padding-top: 10%;
+    top: 40%;
+}
